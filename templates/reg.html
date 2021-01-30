@@ -1,0 +1,53 @@
+<body>
+  {% include 'base.html' %}
+  <div class="container">
+    <div class="d-flex justify-content-center h-50">
+      <div class="card">
+        <div class="card-header">
+          <h3>Create Account</h3>
+        </div>
+        <form class="card-body" action="" method="post">
+          {% for cat, msg in get_flashed_messages(True) %}
+          <div class="flash {{cat}}">{{msg}}</div>
+          {% endfor %}
+          {% for field, errors in form.errors.items() %}
+          <small class="form-text text-muted " style="background-color: red;">
+            {{ ', '.join(errors) }}
+          </small>
+          {% endfor %}
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
+            <input name="username" class="form-control" placeholder="Username" type="text">
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+            </div>
+            <input name="email" class="form-control" placeholder="Email" type="email">
+          </div>
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input name="password" class="form-control" placeholder="Create password" type="password">
+          </div>
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input name="password2" class="form-control" placeholder="Repeat password" type="password">
+          </div>
+          <div class="form-group">
+            <button type="submit" name="submit" class="btn btn-warning btn-block"> Create Account </button>
+          </div>
+          <br>
+
+          <div class="notification is-danger" align=right>
+            Go to <a href="/login">Sign in page</a>.
+          </div>
+
+        </form>
+      </div>
+    </div>

@@ -1,0 +1,39 @@
+{% include 'base.html' %}
+<title>New report</title>
+<link rel="shortcut icon" href="/static/images/favicon.png">
+ <main>
+   <br><br><br>
+  <body>
+    <div class="d-flex justify-content-center h-50">
+      <div class="card">
+        <div class="card-header"> 
+    <h3>Insert information about cheater</h3>
+        </div>
+      <div class="card-body"> 
+    {% from "_formhelpers.html" import render_field %}
+    <form method=post>
+      <dl>
+        {{ render_field(form.ticket) }} 
+        {{ render_field(form.nickname) }}
+        {{ render_field(form.service_login) }}
+        {{ render_field(form.incident_type) }}
+        {% if current_user.role == 'user'%}
+        {{ render_field(form.comment) }}
+        {% endif %}
+        {{ render_field(form.incident_date) }}
+        {{ render_field(form.game_type) }}
+        {{ render_field(form.priority) }}
+        {{ render_field(form.resolution) }}
+        {{ render_field(form.status) }}
+        {% if current_user.role == 'admin'%}
+        {{ render_field(form.comment_soc) }}
+        {% endif %}
+       
+      </dl>
+      <div class="form-group">
+        <button type="submit"  name="submit" class="btn btn-warning btn-block">Submit</button>
+      </div>
+      </div>
+    </form>
+    </body>
+  </main>

@@ -1,0 +1,33 @@
+{% include 'base.html' %}
+  </head>
+  <body>
+    <div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="/static/images/sl.png" alt="" width="auto" height="auto">
+    <h1 class="logo1">SherlockList</h1>
+    <p class="lead">Below u can see our SIEM system.</p>
+  </div>
+
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2">
+          <form method=post>
+          <div class="input-group form-group">
+            <div class="form-group">
+              <a href="{{ url_for('index') }}" class="btn btn-primary btn-block">Return</a>
+            </div>
+            <div class="form-group">
+              <button type="submit"  class="btn btn-primary btn-block" formaction="{{ url_for('.new_report') }}">New Report</button>
+            </div>
+            </form>
+      </div>
+      <div class="col-md-auto">
+           <h2>Report</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              {{table}}
+            </table>
+        </div>
+      </div>
+
+
